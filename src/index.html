@@ -4,18 +4,21 @@
   <title>Language to Image</title>
 </head>
 <body>
-  <form>
+  <form id="setWord">
     <label for="nativeLanguage">Select your native language: </label>
     <select id="nativeLanguage" name="nativeLanguageInput">
-      <option value="englishNative">English</option>
-      <option value="koreanNative">Korean</option>
-    </select><br>
+      <option value="en">English</option>
+      <option value="ko">Korean</option>
+    </select><br><br>
     <label for="targetLanguage">Select your target language: </label>
     <select id="targetLanguage" name="targetLanguageInput">
-      <option value="englishTarget">English</option>
-      <option value="koreanTarget">Korean</option>
-    </select><br>
-    
+      <option value="en">English</option>
+      <option value="ko">Korean</option>
+    </select><br><br>
+    <label for="inputWord">Input a word to generate: </label>
+    <input id="inputWord"></input>
+    <button type="wordButton" id="setWordButton">Generate</button>
   </form>
+  <p id="wordOutput"></p>
 </body>
 </html>
