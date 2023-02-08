@@ -1,41 +1,14 @@
 export class Word{
   constructor(){
-    this.nativeLanguage; //english
-    this.targetLanguage; //korean
-    this.originalWord;
+    this.nativeLanguage; //native
+    this.targetLanguage; //target
+    this.originalWord; //original word
     this.translation; //word translated
-    this.definition; //definition in native language
-    this.image;
   }
 
-  setNativeLanguage(nativeLanguage){
-    this.nativeLanguage = nativeLanguage;
-  }
-
-  setTargetLanguage(targetLanguage){
-    this.targetLanguage = targetLanguage;
-  }
-
-  setTranslation(translation){
-    this.translation = translation;
-  }
-
-  setDefinition(definition){
-    this.definition = definition;
-  }
-
-  setOriginalWord(originalWord){
-    this.originalWord = originalWord;
-  }
-
-  setImage(image){
-    this.image = image; //not quite sure if this is correct, or what format this should be
-  }
-//copy
-  async CuratedPhotos(page_num){
-    // fetch the data from api
+  async generatePhotos(){ //generate a picture from an api call
     let query = this.originalWord;
-    const data=await fetch(`https://api.pexels.com/v1/search?query=${query}&page=${page_num}`, 
+    const data=await fetch(`https://api.pexels.com/v1/search?query=${query}&page=1`, 
     {
         method: "GET",
         headers: {
@@ -51,12 +24,7 @@ export class Word{
       document.getElementById("picOutput").removeChild(document.getElementById("picOutput").firstChild);
     }
     document.getElementById("picOutput").append(myImg);
-
-
-    //display_images(response);   // call the display_images method to display the images on page
-}
-//paste
-
+  }
 
   getTranslation(){
     let originalWord = this.originalWord;
@@ -76,7 +44,7 @@ export class Word{
       request.open("GET", url, true);
       request.send();
     });
-    this.CuratedPhotos(1);
+    this.generatePhotos();
     return promise;
   }
 }
