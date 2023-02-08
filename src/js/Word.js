@@ -52,11 +52,5 @@ export class Word{
     });
     return promise;
   }
-
-  getImage(){
-    const query = 'apple';
-    console.log(process.env.API_KEY);
-    const request = `https://www.googleapis.com/customsearch/v1?q=${query}&imgSize=huge&imgType=photo&num=1&key=${process.env.API_KEY}&cx=${process.env.cx}`;
-    return request;
-  }
 }
+

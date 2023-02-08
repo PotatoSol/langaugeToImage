@@ -1,6 +1,4 @@
 import {Word} from "./js/Word.js";
-import { getJson } from "serpapi";
-
 /*
 console.log('hello');
 let myWord = new Word();
@@ -26,32 +24,24 @@ function handleFormSubmit(){
   
   myWord.getTranslation().then(function(response) {
     //do thing
-    document.getElementById("wordOutput").innerText = response[0].data.translations[0].translatedText;
-    printImage
-    /*
+    let myResponse = response[0].data.translations[0].translatedText;
+    document.getElementById("wordOutput").innerText = myResponse;
+    fetch(`https://serpapi.com/search.json?q=${myWord.originalWord}&tbm=isch&ijn=0`).then(function(response) {
+      console.log(response);
+    });
+    let myPic = `https://serpapi.com/search.json?q=${myWord.originalWord}&tbm=isch&ijn=0`;
+    console.log(myPic);
     let img = document.createElement("img");
-    img.setAttribute("src", myWord.getImage());
+    img.setAttribute("src", myPic);
     document.getElementById("wordOutput").append(document.createElement("br"));
-    console.log(img.src[0]);
     document.getElementById("wordOutput").append(img);
-    */
+    //https://serpapi.com/search.json?q=Apple&tbm=isch&ijn=0
     //this.setTranslation(response[0].data.translations[0].translatedText);
+
   }, function(errorMessage) {
     //do fail
     console.log(errorMessage);
   });
-
-  async function printImage(){
-  const params = {
-    q: myWord.originalWord,
-    google_domain: "google.com",
-    tbm: "isch",
-    api_key: process.env.API_KEY
-  };
-  
-  // Show result as JSON
-  const response1 = await getJson("google", params);
-  console.log(response1);
 }
 
 
@@ -65,7 +55,7 @@ function handleFormSubmit(){
   console.log(inputWord);
   console.log(myWord);
   */
-}
+
 
 document.getElementById("setWord").addEventListener("submit" ,function(event){
   event.preventDefault();
