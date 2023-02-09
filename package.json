@@ -2,12 +2,17 @@
   "name": "languageToImage",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "url": "git+https://github.com/potatosol/languageToImage.git"
+  },
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=development",
     "start": "npm run build && webpack-dev-server --open --mode=development",
     "lint": "eslint src/*.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +25,7 @@
     "dotenv-webpack": "^2.0.0",
     "eslint": "^8.18.0",
     "eslint-webpack-plugin": "^2.7.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^4.5.2",
     "jest": "^24.9.0",
     "json-loader": "^0.5.7",

@@ -1,4 +1,5 @@
 import {Word} from "./js/Word.js";
+import "./css/styles.css";
 
 function handleFormSubmit(){
   let myWord = new Word();

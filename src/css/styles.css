@@ -1,3 +1,24 @@
 body {
   background-color:cadetblue
-};
+}
+
+.center {
+  text-align:center;
+}
+
+.centerFont{
+  text-align:center;
+  font-size:1.5rem
+}
+
+.centerFontBold{
+  text-align:center;
+  font-size:1.5rem;
+  font-weight: bolder;
+}
+
+.centerFontItalic{
+  text-align:center;
+  font-size:1.5rem;
+  font-style:italic
+}
