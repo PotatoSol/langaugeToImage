@@ -18,7 +18,6 @@ export class Word{
     });
     const response=await data.json();   //convert the response to json 
     let myImg = document.createElement("img");
-    console.log(response.photos[0].src.medium);
     myImg.setAttribute("src", response.photos[0].src.medium);
     while(document.getElementById("picOutput").firstChild){
       document.getElementById("picOutput").removeChild(document.getElementById("picOutput").firstChild);
@@ -50,10 +49,17 @@ export class Word{
   }
 
   getDefinition(){
-    let definitionResponse = fetch(`https://api.dictionaryapi.dev/api/v2/entries/${this.nativeLanguage}/${this.originalWord}`)
-    .then(function(response){
-      console.log("hello :3", response);
-    });
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': process.env.rapidAPI,
+        'X-RapidAPI-Host': process.env.rapidHost
+      }
+    };
+    
+    fetch(`https://wordsapiv1.p.rapidapi.com/words/${this.originalWord}/`, options)
+      .then(response => response.json())
+      .then(response => document.getElementById("defOutput").innerText = response.results[0].definition)
+      .catch(err => console.error(err));
   }
 }
-
