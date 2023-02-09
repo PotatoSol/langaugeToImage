@@ -45,7 +45,15 @@ export class Word{
       request.send();
     });
     this.generatePhotos();
+    this.getDefinition();
     return promise;
+  }
+
+  getDefinition(){
+    let definitionResponse = fetch(`https://api.dictionaryapi.dev/api/v2/entries/${this.nativeLanguage}/${this.originalWord}`)
+    .then(function(response){
+      console.log("hello :3", response);
+    });
   }
 }
 
