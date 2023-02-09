@@ -1,8 +1,8 @@
-# (Application Name)
+# Language to Image {Better name pending}
 
-#### (Brief Description of Application)
+#### Takes in a word in a native language and translates it, and grabs an image
 
-#### By (Your Name Here)
+#### By Michael Sol
 
 ## Technologies Used
 
@@ -12,6 +12,10 @@
 * _here_
 
 ## Description
+
+Takes in a word in a Native Language and Translates it, and then shows an image to help association.
+
+TODO: Prettify the page so that it can look like a phone background, set up mobile api to allow it set wallpaper, get a word generator api so that it can automatically generate words (maybe top X words in a language?), maybe include definition of word, allow words to be removed from database
 
 ## Setup/Installation Requirements
 # correct template by installing babel and jest!!!
